@@ -1,0 +1,22 @@
+<form #myForm="ngForm" (ngSubmit)="create()">
+  <input [(ngModel)]="myValue"
+         name="myValue"
+         #myValueModel="ngModel"
+         [required]="isRequired">
+
+  <select [(ngModel)]="mySelectedValue"
+          name="mySelectedValue"
+          required>
+    <option *ngFor="let value of selectValues">{{value}}</option>
+  </select>
+
+  <div *ngIf="myValueModel.dirty && myValueModel.errors?.required" style="color: red">
+    Довге
+  </div>
+
+  <div>
+    <button [disabled]="myForm.invalid">Відправити</button>
+  </div>
+</form>
+
+<div>{{mySelectedValue}}</div>
