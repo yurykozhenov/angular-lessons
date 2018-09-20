@@ -10,6 +10,6 @@ export class Gallery2Component {
   @Output() anything = new EventEmitter<string>();
 
   onPresssssss(num: number) {
-    this.anythinge(num);
+    this.anything.emit(num.toString());
   }
 }
