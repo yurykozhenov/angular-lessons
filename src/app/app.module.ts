@@ -1,9 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {MySecondFeatureModule} from "./my-second-feature/my-second-feature.module";
+import {MyService} from "./my.service";
+
+class MySecondClass {
+  foo() {
+    console.log('blablabla')
+  }
+}
 
 @NgModule({
   declarations: [
@@ -14,7 +21,7 @@ import {MySecondFeatureModule} from "./my-second-feature/my-second-feature.modul
     FormsModule,
     MySecondFeatureModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
