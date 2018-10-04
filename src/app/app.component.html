@@ -1,22 +1,24 @@
-<form #myForm="ngForm" (ngSubmit)="create()">
-  <input [(ngModel)]="myValue"
-         name="myValue"
-         #myValueModel="ngModel"
-         [required]="isRequired">
+<!--<form #myForm="ngForm" (ngSubmit)="create()">-->
+  <!--<input [(ngModel)]="myValue"-->
+         <!--name="myValue"-->
+         <!--#myValueModel="ngModel"-->
+         <!--[required]="isRequired">-->
 
-  <select [(ngModel)]="mySelectedValue"
-          name="mySelectedValue"
-          required>
-    <option *ngFor="let value of selectValues">{{value}}</option>
-  </select>
+  <!--<select [(ngModel)]="mySelectedValue"-->
+          <!--name="mySelectedValue"-->
+          <!--required>-->
+    <!--<option *ngFor="let value of selectValues">{{value}}</option>-->
+  <!--</select>-->
 
-  <div *ngIf="myValueModel.dirty && myValueModel.errors?.required" style="color: red">
-    Довге
-  </div>
+  <!--<div *ngIf="myValueModel.dirty && myValueModel.errors?.required" style="color: red">-->
+    <!--Довге-->
+  <!--</div>-->
 
-  <div>
-    <button [disabled]="myForm.invalid">Відправити</button>
-  </div>
-</form>
+  <!--<div>-->
+    <!--<button [disabled]="myForm.invalid">Відправити</button>-->
+  <!--</div>-->
+<!--</form>-->
 
-<div>{{mySelectedValue}}</div>
+<!--<div>{{mySelectedValue}}</div>-->
+
+<button style="width: 100%; height: 500px;" id="btn">My button</button>
