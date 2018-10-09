@@ -4,7 +4,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   selector: 'gallery',
   templateUrl: './gallery.component.html',
 })
-export class SomethingComponent {
+export class GalleryComponent {
   @Input() myText: string;
 
   @Output() myTextChange = new EventEmitter<number>();

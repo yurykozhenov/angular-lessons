@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
         switchMap(data => this.httpClient.get(`https://jsonplaceholder.typicode.com/todos/${data[0].id}`))
       )
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
       });
   }
 

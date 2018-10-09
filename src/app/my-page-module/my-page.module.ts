@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {SomethingComponent} from "./gallery/gallery.component";
+import {GalleryComponent} from "./gallery/gallery.component";
 import {Gallery2Component} from "./gallery2/gallery2.component";
 import {Gallery3Component} from "./gallery3/gallery3.component";
 
+import { MyPageRoutingModule } from './my-page-routing.module';
+import { GalleryItemComponent } from "./gallery-item/gallery-item.component";
+
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, MyPageRoutingModule],
   declarations: [
-    SomethingComponent,
+    GalleryComponent,
     Gallery2Component,
-    Gallery3Component
+    Gallery3Component,
+    GalleryItemComponent
   ],
   exports: [
-    SomethingComponent,
+    GalleryComponent,
     Gallery2Component,
     Gallery3Component
   ]
