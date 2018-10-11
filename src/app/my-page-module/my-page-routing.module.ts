@@ -4,10 +4,14 @@ import { GalleryComponent } from "./gallery/gallery.component";
 import { Gallery2Component } from "./gallery2/gallery2.component";
 import { Gallery3Component } from "./gallery3/gallery3.component";
 import { GalleryItemComponent } from "./gallery-item/gallery-item.component";
+import { AuthGuard } from "../auth.guard";
+import { DeactivateGuard } from "../deactivate.guard";
+import { ItemsResolver } from "../items.resolver";
 
 const myRoutes: Routes = [
   {
-    path: 'gallery',
+    path: '',
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: '',
@@ -19,6 +23,10 @@ const myRoutes: Routes = [
         data: {
           title: 'My Gallery Item',
           asd: 'asd',
+        },
+        canDeactivate: [DeactivateGuard],
+        resolve: {
+          items: ItemsResolver
         }
       },
       // {

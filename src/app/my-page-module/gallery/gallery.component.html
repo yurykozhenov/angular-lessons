@@ -1,9 +1,9 @@
-Hey!.
-{{myText}}
+Hey!
 
-<button (click)="press.emit(2)"></button>
+<div *ngIf="true">
+  <button id="myButton" (click)="press.emit(2)">{{myText}}</button>
+</div>
 
 <router-outlet></router-outlet>
 
 <br>
-

@@ -32,8 +32,16 @@
   </a>
 
   <button (click)="navigate()">Navigate button</button>
+
+  <a routerLink="/gallery"
+     routerLinkActive="my-class">
+    Gallery
+  </a>
 </header>
 
 <router-outlet></router-outlet>
+<!--<gallery [myText]="myText"></gallery>-->
+
+<button (click)="changeText()">Change Gallery Text</button>
 
 <footer>my footer</footer>

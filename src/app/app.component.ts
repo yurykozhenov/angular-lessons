@@ -26,9 +26,10 @@ export class AppComponent implements OnInit {
     'one', 'two', 'three'
   ];
   myId: number = 5;
+  myText: string = 'stringssss';
 
-  constructor(private secondService:SecondService,
-              private httpClient:HttpClient,
+  constructor(private secondService: SecondService,
+              private httpClient: HttpClient,
               private router: Router) {
   }
 
@@ -70,12 +71,16 @@ export class AppComponent implements OnInit {
     //
     // observable.subscribe(event => console.log('bla'));
 
+    // setTimeout(() => {
+    //   console.log('Timeout!');
+    // },2000);
+
     this.httpClient.get('https://jsonplaceholder.typicode.com/todos')
       .pipe(
         switchMap(data => this.httpClient.get(`https://jsonplaceholder.typicode.com/todos/${data[0].id}`))
       )
       .subscribe(data => {
-        // console.log(data);
+        console.log(data);
       });
   }
 
@@ -87,5 +92,9 @@ export class AppComponent implements OnInit {
     this.router.navigateByUrl(`/gallery/${this.myId}`).then(() => {
       console.log(this.router.isActive(`/gallery/${this.myId}`, true));
     });
+  }
+
+  changeText() {
+    this.myText = 'blablabla';
   }
 }

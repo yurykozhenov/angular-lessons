@@ -27,6 +27,7 @@ export class GalleryItemComponent implements OnInit {
 
     this.route.data.subscribe((data: { title: string }) => {
       this.title.setTitle(data.title);
+      console.log(data);
     })
   }
 }
