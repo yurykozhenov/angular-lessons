@@ -8,7 +8,7 @@ export class GalleryComponent {
   @Input() myText: string;
 
   @Output() myTextChange = new EventEmitter<number>();
-
+  
   onPress(num: number) {
     this.myTextChange.emit(num);
   }

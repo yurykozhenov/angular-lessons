@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MyService } from "./my.service";
 import { SecondService } from "./second.service";
 import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 import { Observable, fromEvent, from, of, Observer } from "rxjs";
 import { throttleTime, map, filter, tap, first, catchError, take, switchMap } from "rxjs/operators";
 
@@ -24,9 +25,11 @@ export class AppComponent implements OnInit {
   selectValues:string[] = [
     'one', 'two', 'three'
   ];
+  myId: number = 5;
 
   constructor(private secondService:SecondService,
-              private httpClient:HttpClient) {
+              private httpClient:HttpClient,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -78,5 +81,11 @@ export class AppComponent implements OnInit {
 
   create() {
     console.log(this.mySelectedValue)
+  }
+
+  navigate() {
+    this.router.navigateByUrl(`/gallery/${this.myId}`).then(() => {
+      console.log(this.router.isActive(`/gallery/${this.myId}`, true));
+    });
   }
 }
