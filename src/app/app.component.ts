@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { MyService } from "./my.service";
 import { SecondService } from "./second.service";
 import { HttpClient } from "@angular/common/http";
@@ -27,6 +27,11 @@ export class AppComponent implements OnInit {
   ];
   myId: number = 5;
   myText: string = 'stringssss';
+  today: Date = new Date();
+  myObj: any;
+  myData: any[];
+  myObj$: Observable<any>;
+  time: Observable<any>;
 
   constructor(private secondService: SecondService,
               private httpClient: HttpClient,
@@ -75,13 +80,19 @@ export class AppComponent implements OnInit {
     //   console.log('Timeout!');
     // },2000);
 
-    this.httpClient.get('https://jsonplaceholder.typicode.com/todos')
+    this.myObj$ = this.httpClient.get<any[]>('https://jsonplaceholder.typicode.com/todos')
       .pipe(
         switchMap(data => this.httpClient.get(`https://jsonplaceholder.typicode.com/todos/${data[0].id}`))
+      // map(data => data.slice(0, 5))
       )
-      .subscribe(data => {
-        console.log(data);
-      });
+      // .subscribe((obj: any[]) => {
+      //   this.myObj = obj;
+      //   console.log(obj);
+      // });
+
+    // this.time = new Observable<string>((observer: Observer<string>) => {
+    //   setInterval(() => observer.next(new Date().toString()), 1000);
+    // });
   }
 
   create() {

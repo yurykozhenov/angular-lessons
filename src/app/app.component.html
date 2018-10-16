@@ -23,25 +23,42 @@
 
 <!--<button style="width: 100%; height: 500px;" id="btn">My button</button>-->
 
-<header style="border: 1px solid black">
-  <a [routerLink]="['/gallery', myId]"
-     routerLinkActive="my-class"
-     [routerLinkActiveOptions]="{ exact: true }"
-     [queryParams]="{ key: 'value', key2: 'value2' }">
-    Link
-  </a>
+<!--<header style="border: 1px solid black">-->
+  <!--<a [routerLink]="['/gallery', myId]"-->
+     <!--routerLinkActive="my-class"-->
+     <!--[routerLinkActiveOptions]="{ exact: true }"-->
+     <!--[queryParams]="{ key: 'value', key2: 'value2' }">-->
+    <!--Link-->
+  <!--</a>-->
 
-  <button (click)="navigate()">Navigate button</button>
+  <!--<button (click)="navigate()">Navigate button</button>-->
 
-  <a routerLink="/gallery"
-     routerLinkActive="my-class">
-    Gallery
-  </a>
-</header>
+  <!--<a routerLink="/gallery"-->
+     <!--routerLinkActive="my-class">-->
+    <!--Gallery-->
+  <!--</a>-->
+<!--</header>-->
 
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->
 <!--<gallery [myText]="myText"></gallery>-->
 
-<button (click)="changeText()">Change Gallery Text</button>
+<!--<button (click)="changeText()">Change Gallery Text</button>-->
 
-<footer>my footer</footer>
+<!--<footer>my footer</footer>-->
+
+<div appHighlight="blue">{{today | date:'dd MMMM yyyy HH:mm:ss':'':'uk'}}</div>
+<!--<div>{{myId | currency:'UAH':'symbol-narrow':'':'uk'}}</div>-->
+<!--<div>{{myObj | json}}</div>-->
+
+<!--{{time | async | date:'ss'}}-->
+<!--<ng-template [ngIf]="true">-->
+  <!--<div [class]="{ 'my-class': true }">{{myText | appTruncate}}</div>-->
+<!--</ng-template>-->
+
+<!--<div *ngFor="let value of selectValues">-->
+  <!--{{value}}-->
+<!--</div>-->
+
+<!--<ng-template ngFor [ngForOf]="selectValues" let-value>-->
+  <!--<div>{{value}}</div>-->
+<!--</ng-template>-->

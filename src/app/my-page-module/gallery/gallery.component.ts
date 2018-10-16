@@ -19,7 +19,7 @@ import { Subscription } from "rxjs/index";
 //
 
 @Component({
-  selector: 'gallery',
+  selector: 'gallery, [gallery]',
   templateUrl: './gallery.component.html',
 })
 export class GalleryComponent implements OnInit,
@@ -55,7 +55,7 @@ export class GalleryComponent implements OnInit,
       console.log(event);
     })
   }
-  
+
   // ngDoCheck() {
   //   console.log('#ngDoCheck');
   // }
