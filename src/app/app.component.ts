@@ -42,7 +42,8 @@ export class AppComponent implements OnInit {
 
   constructor(private secondService: SecondService,
               private httpClient: HttpClient,
-              private router: Router) {
+              private router: Router,
+              private myService: MyService) {
   }
 
   ngOnInit() {
@@ -87,11 +88,11 @@ export class AppComponent implements OnInit {
     //   console.log('Timeout!');
     // },2000);
 
-    this.myObj$ = this.httpClient.get<any[]>('https://jsonplaceholder.typicode.com/todos')
-      .pipe(
-        switchMap(data => this.httpClient.get(`https://jsonplaceholder.typicode.com/todos/${data[0].id}`))
+    // this.myObj$ = this.httpClient.get<any[]>('https://jsonplaceholder.typicode.com/todos')
+    //   .pipe(
+    //     switchMap(data => this.httpClient.get(`https://jsonplaceholder.typicode.com/todos/${data[0].id}`))
       // map(data => data.slice(0, 5))
-      )
+      // )
       // .subscribe((obj: any[]) => {
       //   this.myObj = obj;
       //   console.log(obj);
@@ -100,6 +101,8 @@ export class AppComponent implements OnInit {
     // this.time = new Observable<string>((observer: Observer<string>) => {
     //   setInterval(() => observer.next(new Date().toString()), 1000);
     // });
+
+    this.myService.getItems().subscribe(items => console.log(items));
   }
 
   create() {

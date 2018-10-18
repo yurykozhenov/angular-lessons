@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {registerLocaleData } from '@angular/common';
 import localeUk from '@angular/common/locales/uk';
 
@@ -14,6 +14,8 @@ import { TruncatePipe } from "./truncate.pipe";
 import { IfComponent } from "./if-component.component";
 import { HighlightDirective } from "./highlight.directive";
 import { LayoutComponent } from "./layout/layout.component";
+import { ApiUrlInterceptor } from "./api-url.interceptor";
+import { TokenInterceptor } from "./token.interceptor";
 
 registerLocaleData(localeUk, 'uk');
 
@@ -39,6 +41,19 @@ class MySecondClass {
     AppRoutingModule,
   ],
   bootstrap: [AppComponent],
+  providers: [
+    MyService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiUrlInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    }
+  ],
   // schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule {}
