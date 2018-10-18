@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {registerLocaleData } from '@angular/common';
@@ -13,6 +13,7 @@ import { NotFoundComponent } from "./not-found/not-found.component";
 import { TruncatePipe } from "./truncate.pipe";
 import { IfComponent } from "./if-component.component";
 import { HighlightDirective } from "./highlight.directive";
+import { LayoutComponent } from "./layout/layout.component";
 
 registerLocaleData(localeUk, 'uk');
 
@@ -29,6 +30,7 @@ class MySecondClass {
     TruncatePipe,
     IfComponent,
     HighlightDirective,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,6 @@ class MySecondClass {
     AppRoutingModule,
   ],
   bootstrap: [AppComponent],
+  // schemas: [NO_ERRORS_SCHEMA]
 })
-export class AppModule {
-}
+export class AppModule {}

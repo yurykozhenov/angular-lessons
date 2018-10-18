@@ -1,10 +1,12 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { NO_ERRORS_SCHEMA, Component, OnInit, TemplateRef, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { MyService } from "./my.service";
 import { SecondService } from "./second.service";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { Observable, fromEvent, from, of, Observer } from "rxjs";
 import { throttleTime, map, filter, tap, first, catchError, take, switchMap } from "rxjs/operators";
+import { NgModel } from '@angular/forms';
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 @Component({
   selector: 'app-roott',
@@ -16,9 +18,13 @@ import { throttleTime, map, filter, tap, first, catchError, take, switchMap } fr
         console.log('bazzzzz')
       }
     }
-  }]
+  }],
 })
 export class AppComponent implements OnInit {
+  @ViewChild('myButton') myButton: ElementRef;
+  @ViewChild('myInput') myInput: NgModel;
+  @ViewChildren(NotFoundComponent) notFoundComponents: QueryList<NotFoundComponent>;
+
   myValue:string;
   mySelectedValue:string;
   isRequired = true;
@@ -32,6 +38,7 @@ export class AppComponent implements OnInit {
   myData: any[];
   myObj$: Observable<any>;
   time: Observable<any>;
+  aLetter = 'a';
 
   constructor(private secondService: SecondService,
               private httpClient: HttpClient,
@@ -107,5 +114,19 @@ export class AppComponent implements OnInit {
 
   changeText() {
     this.myText = 'blablabla';
+  }
+
+  test() {
+    console.log(this.notFoundComponents);
+
+    let x = 0;
+
+    this.notFoundComponents.forEach(component => {
+      component.status = x;
+      x += 1;
+    });
+
+    const button = this.myButton.nativeElement as HTMLButtonElement;
+    button.style.color = 'red';
   }
 }

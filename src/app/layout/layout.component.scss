@@ -1,0 +1,17 @@
+.container, aside, main {
+  border: 1px solid black;
+  padding: 16px;
+}
+
+.container {
+  display: flex;
+}
+
+aside {
+  width: 150px;
+  height: 200px;
+}
+
+main {
+  flex: 1 0 auto;
+}

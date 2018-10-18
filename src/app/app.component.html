@@ -46,7 +46,7 @@
 
 <!--<footer>my footer</footer>-->
 
-<div appHighlight="blue">{{today | date:'dd MMMM yyyy HH:mm:ss':'':'uk'}}</div>
+<!--<div appHighlight="blue">{{today | date:'dd MMMM yyyy HH:mm:ss':'':'uk'}}</div>-->
 <!--<div>{{myId | currency:'UAH':'symbol-narrow':'':'uk'}}</div>-->
 <!--<div>{{myObj | json}}</div>-->
 
@@ -62,3 +62,67 @@
 <!--<ng-template ngFor [ngForOf]="selectValues" let-value>-->
   <!--<div>{{value}}</div>-->
 <!--</ng-template>-->
+
+<button #myButton (click)="test()">My Button</button>
+
+<input #myInput="ngModel" [(ngModel)]="myText" required>
+
+<div [ngSwitch]="myText">
+  <ng-template [ngSwitchCase]="aLetter">
+    <div>1A</div>
+  </ng-template>
+  <div *ngSwitchCase="'b'">2B</div>
+  <div *ngSwitchCase="'c'">3C</div>
+  <div *ngSwitchDefault>Default</div>
+</div>
+
+<ng-container *ngIf="myText === 'a'; else showDivIfFalse">
+  <ng-container>
+    <ng-container>
+      <ng-container>
+        <ng-container>
+          <ng-container>
+            <ng-container>
+              <ng-container>
+                <ng-container>
+                  <div>If true inside</div>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #showDivIfTrue>
+  <div>If true</div>
+</ng-template>
+
+<ng-template #showDivIfFalse>
+  <div>If false</div>
+</ng-template>
+
+<div>
+  <ng-container *ngFor="let value of selectValues">
+    {{value}}
+  </ng-container>
+</div>
+
+<not-found>
+  <button>My Button</button>
+</not-found>
+
+<not-found>
+  <button>My Button 2</button>
+</not-found>
+
+<not-found>
+  <input value="Omg it works">
+</not-found>
+
+<layout>
+  <div sidenav-content>Side content</div>
+  <div main-content>Main content</div>
+</layout>

@@ -2,8 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'not-found',
-  template: '404',
+  template: '{{status}} <ng-content></ng-content>',
 })
 export class NotFoundComponent {
+  status: number = 404;
 
+  testMethod() {
+    console.log('test from NotFoundComponent');
+  }
 }
