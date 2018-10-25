@@ -1,0 +1,75 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button type="button" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Third Line</span>
+    <!--<mat-icon class="example-icon">arrow_left</mat-icon>-->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" autosize style="height: 100%;">
+  <mat-drawer #drawer class="example-sidenav" mode="over" style="width: 320px;">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div style="padding: 16px;">
+    <h1>Here we will have Angular Material demo code</h1>
+
+    <button mat-raised-button color="primary">Click me!</button>
+    <button mat-raised-button color="accent">Click me!</button>
+    <button mat-raised-button color="warn">Click me!</button>
+    <button mat-icon-button>
+      <mat-icon>accessible_forward</mat-icon>
+    </button>
+
+    <mat-spinner></mat-spinner>
+    <mat-progress-spinner color="warn" mode="determinate" [value]="70"></mat-progress-spinner>
+
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+    <mat-form-field>
+      <input matInput
+             placeholder="Input"
+             [(ngModel)]="myValue"
+             (ngModelChange)="onChange($event)"
+             required
+             #inputModel="ngModel"
+             [matAutocomplete]="myAutocomplete">
+      <mat-hint>Hint</mat-hint>
+      <mat-error *ngIf="inputModel.errors?.required">Field is required</mat-error>
+    </mat-form-field>
+
+    <mat-autocomplete #myAutocomplete="matAutocomplete">
+      <mat-option *ngFor="let food of filteredOptions | async" [value]="food">
+        {{food}}
+      </mat-option>
+    </mat-autocomplete>
+
+    <mat-form-field style="margin-left: 8px;">
+      <mat-select placeholder="Favorite food" [(ngModel)]="myValue" #selectModel="ngModel" required>
+        <mat-option *ngFor="let food of foods" [value]="food">
+          {{food}}
+        </mat-option>
+      </mat-select>
+
+      <mat-hint>Hint</mat-hint>
+      <mat-error *ngIf="selectModel.errors?.required">Field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="margin-left: 8px;">
+      <textarea matInput placeholder="Leave a comment" [(ngModel)]="myValue" cdkTextareaAutosize></textarea>
+    </mat-form-field>
+
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <a href="https://google.com" mat-menu-item>Item 1</a>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+  </div>
+
+</mat-drawer-container>

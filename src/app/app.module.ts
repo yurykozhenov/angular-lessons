@@ -16,6 +16,8 @@ import { HighlightDirective } from "./highlight.directive";
 import { LayoutComponent } from "./layout/layout.component";
 import { ApiUrlInterceptor } from "./api-url.interceptor";
 import { TokenInterceptor } from "./token.interceptor";
+import { MaterialDemoModule } from "./material-demo/material-demo.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(localeUk, 'uk');
 
@@ -39,6 +41,8 @@ class MySecondClass {
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    MaterialDemoModule,
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent],
   providers: [

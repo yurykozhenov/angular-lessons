@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { AuthGuard } from "./auth.guard";
+import { MaterialDemoComponent } from "./material-demo/material-demo.component";
 
 const appRoutes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'my-page',
+    component: MaterialDemoComponent,
+    // pathMatch: 'full',
+    // redirectTo: 'my-page',
   },
   {
     path: 'gallery',
