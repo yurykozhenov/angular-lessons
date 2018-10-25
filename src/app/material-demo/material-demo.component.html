@@ -20,12 +20,32 @@
   <div style="padding: 16px;">
     <h1>Here we will have Angular Material demo code</h1>
 
-    <button mat-raised-button color="primary">Click me!</button>
-    <button mat-raised-button color="accent">Click me!</button>
-    <button mat-raised-button color="warn">Click me!</button>
-    <button mat-icon-button>
-      <mat-icon>accessible_forward</mat-icon>
-    </button>
+    <div fxLayout="column"
+         fxLayout.gt-sm="row"
+         fxLayoutAlign="center center"
+         fxLayoutGap="8px"
+         fxLayoutGap.gt-sm="16px">
+      <button mat-raised-button
+              color="primary"
+              (click)="openBottomSheet()"
+              fxFlexAlign="start">
+        Bottom Sheet
+      </button>
+      <button mat-raised-button
+              color="accent"
+              (click)="openDialog()">
+        Dialog
+      </button>
+      <button mat-raised-button
+              color="warn"
+              (click)="openSnackBar()">
+        SnackBar
+      </button>
+      <button mat-icon-button>
+        <mat-icon>accessible_forward</mat-icon>
+      </button>
+    </div>
+
 
     <mat-spinner></mat-spinner>
     <mat-progress-spinner color="warn" mode="determinate" [value]="70"></mat-progress-spinner>
@@ -70,6 +90,12 @@
       <a href="https://google.com" mat-menu-item>Item 1</a>
       <button mat-menu-item>Item 2</button>
     </mat-menu>
+
+    <div class="mat-elevation-z10">My div</div>
+
+    <h1 class="mat-display-4">Below is table</h1>
+
+    <app-my-table></app-my-table>
   </div>
 
 </mat-drawer-container>
